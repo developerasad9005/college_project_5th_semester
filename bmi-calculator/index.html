@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator - Health & Fitness</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../responsive.css">
+</head>
+<body class="bg-gradient-to-br from-emerald-500 via-teal-600 to-cyan-700 min-h-screen">
+    <!-- Navigation -->
+    <nav class="navbar bg-gradient-to-r from-emerald-600 to-teal-700 shadow-lg fixed top-0 z-50 w-full">
+        <!-- Mobile Layout -->
+        <div class="navbar-start lg:hidden">
+            <a href="../index.html" class="btn btn-ghost text-xl font-bold text-white">NooB Programmers</a>
+        </div>
+        
+        <div class="navbar-end lg:hidden">
+            <div class="dropdown dropdown-end">
+                <div tabindex="0" role="button" class="btn btn-ghost text-white" id="mobile-menu-toggle">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Modal -->
+        <dialog id="mobile-menu-modal" class="modal modal-middle">
+            <div class="modal-box bg-base-100 p-0 rounded-box w-11/12 max-w-xs">
+                <div class="modal-header flex justify-end p-4">
+                    <form method="dialog">
+                        <button class="btn btn-sm btn-circle btn-ghost modal-close-btn-circle">✕</button>
+                    </form>
+                </div>
+                <ul class="menu menu-vertical p-4">
+                    <li><a href="../index.html#home" class="text-base-content hover:text-primary">Home</a></li>
+                    <li><a href="../index.html#about" class="text-base-content hover:text-primary">About</a></li>
+                    <li><a href="../index.html#services" class="text-base-content hover:text-primary">Services</a></li>
+                    <li><a href="../index.html#portfolio" class="text-base-content hover:text-primary">Portfolio</a></li>
+                    <li>
+                        <details>
+                            <summary class="flex items-center cursor-pointer text-base-content hover:text-primary">Calculators</summary>
+                            <ul>
+                                <li><a href="../calculator/index.html" class="text-base-content hover:text-primary">Modern Calculator</a></li>
+                                <li><a href="index.html" class="text-base-content hover:text-primary">BMI Calculator</a></li>
+                                <li><a href="../age-calculator/index.html" class="text-base-content hover:text-primary">Age Calculator</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li><a href="../team.html" class="text-base-content hover:text-primary">Team</a></li>
+                    <li><a href="../index.html#contact" class="text-base-content hover:text-primary">Contact</a></li>
+                </ul>
+            </div>
+        </dialog>
+        
+        <!-- Desktop Layout - Container with Logo Left, Menu Right -->
+        <div class="hidden lg:flex w-full max-w-7xl mx-auto px-4 justify-between items-center">
+            <!-- Logo -->
+            <div class="flex-shrink-0">
+                <a href="../index.html" class="btn btn-ghost text-xl font-bold text-white">NooB Programmers</a>
+            </div>
+            
+            <!-- Menu Items -->
+            <div class="flex items-center">
+                <ul class="menu menu-horizontal px-1">
+                    <li><a href="../index.html#home" class="text-white hover:text-gray-300">Home</a></li>
+                    <li><a href="../index.html#about" class="text-white hover:text-gray-300">About</a></li>
+                    <li><a href="../index.html#services" class="text-white hover:text-gray-300">Services</a></li>
+                    <li><a href="../index.html#portfolio" class="text-white hover:text-gray-300">Portfolio</a></li>
+                    
+                    <li class="relative">
+                        <div class="dropdown dropdown-bottom">
+                            <label tabindex="0" class="text-white hover:text-gray-300 flex items-center cursor-pointer">
+                                Calculators
+                                <svg class="ml-1 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                            </label>
+                            <ul tabindex="0" class="dropdown-content bg-base-100 text-black z-50 p-2 shadow rounded-box w-52">
+                                <li><a href="../calculator/index.html">Modern Calculator</a></li>
+                                <li><a href="../bmi-calculator/index.html">BMI Calculator</a></li>
+                                <li><a href="../age-calculator/index.html">Age Calculator</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="../team.html" class="text-white">Team</a></li>
+                    <li><a href="../index.html#contact" class="text-white hover:text-gray-300">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-8 pt-20">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                <i class="fas fa-heartbeat text-red-400 mr-3"></i>
+                BMI Calculator
+            </h1>
+            <p class="text-xl text-white opacity-90">Calculate your Body Mass Index and get health insights</p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <!-- Calculator Section -->
+            <div class="calculator-card">
+                <div class="card-header">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">
+                        <i class="fas fa-calculator text-blue-500 mr-2"></i>
+                        Calculate Your BMI
+                    </h2>
+                    <p class="text-gray-600">Enter your height and weight to get started</p>
+                </div>
+
+                <div class="form-section">
+                    <!-- Height Input -->
+                    <div class="input-group">
+                        <label class="input-label">
+                            <i class="fas fa-ruler-vertical text-green-500 mr-2"></i>
+                            Height
+                        </label>
+                        <div class="input-container">
+                            <input type="number" id="height" class="form-input" placeholder="Enter height" step="0.1" min="0">
+                            <select id="height-unit" class="unit-select">
+                                <option value="cm">cm</option>
+                                <option value="ft">ft</option>
+                                <option value="m">m</option>
+                            </select>
+                        </div>
+                        <!-- Feet/Inch input, hidden by default -->
+                        <div class="input-container mt-2" id="height-ft-in-group" style="display:none;">
+                            <input type="number" id="height-ft" class="form-input w-24 inline-block mr-2" placeholder="Feet" min="0">
+                            <input type="number" id="height-in" class="form-input w-24 inline-block" placeholder="Inch" min="0" max="11">
+                        </div>
+                    </div>
+
+                    <!-- Weight Input -->
+                    <div class="input-group">
+                        <label class="input-label">
+                            <i class="fas fa-weight text-blue-500 mr-2"></i>
+                            Weight
+                        </label>
+                        <div class="input-container">
+                            <input type="number" id="weight" class="form-input" placeholder="Enter weight" step="0.1" min="0">
+                            <select id="weight-unit" class="unit-select">
+                                <option value="kg">kg</option>
+                                <option value="lbs">lbs</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Calculate Button -->
+                    <button id="calculate-btn" class="calculate-btn">
+                        <i class="fas fa-calculator mr-2"></i>
+                        Calculate BMI
+                    </button>
+
+                    <!-- Reset Button -->
+                    <button id="reset-btn" class="reset-btn">
+                        <i class="fas fa-redo mr-2"></i>
+                        Reset
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-card" id="results-card">
+                <div class="card-header">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">
+                        <i class="fas fa-chart-line text-purple-500 mr-2"></i>
+                        Your Results
+                    </h2>
+                    <p class="text-gray-600">Your BMI and health status</p>
+                </div>
+
+                <div class="results-content" id="results-content">
+                    <div class="placeholder-content">
+                        <i class="fas fa-chart-bar text-6xl text-gray-300 mb-4"></i>
+                        <p class="text-gray-500 text-lg">Enter your measurements to see your BMI results</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BMI Categories -->
+        <div class="bmi-categories mt-12">
+            <h3 class="text-2xl font-bold text-white text-center mb-6">
+                <i class="fas fa-info-circle mr-2"></i>
+                BMI Categories
+            </h3>
+            <div class="grid md:grid-cols-4 gap-4">
+                <div class="category-card underweight">
+                    <div class="category-icon">
+                        <i class="fas fa-user-minus"></i>
+                    </div>
+                    <h4 class="category-title">Underweight</h4>
+                    <p class="category-range">&lt; 18.5</p>
+                    <p class="category-desc">Below healthy weight range</p>
+                </div>
+                <div class="category-card normal">
+                    <div class="category-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h4 class="category-title">Normal</h4>
+                    <p class="category-range">18.5 - 24.9</p>
+                    <p class="category-desc">Healthy weight range</p>
+                </div>
+                <div class="category-card overweight">
+                    <div class="category-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h4 class="category-title">Overweight</h4>
+                    <p class="category-range">25.0 - 29.9</p>
+                    <p class="category-desc">Above healthy weight range</p>
+                </div>
+                <div class="category-card obese">
+                    <div class="category-icon">
+                        <i class="fas fa-user-times"></i>
+                    </div>
+                    <h4 class="category-title">Obese</h4>
+                    <p class="category-range">≥ 30.0</p>
+                    <p class="category-desc">Significantly above healthy weight</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Health Tips -->
+        <div class="health-tips mt-12">
+            <h3 class="text-2xl font-bold text-white text-center mb-6">
+                <i class="fas fa-lightbulb mr-2"></i>
+                Health Tips
+            </h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h4 class="tip-title">Regular Exercise</h4>
+                    <p class="tip-text">Aim for at least 150 minutes of moderate exercise per week to maintain a healthy weight.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <h4 class="tip-title">Balanced Diet</h4>
+                    <p class="tip-text">Eat a variety of fruits, vegetables, lean proteins, and whole grains for optimal health.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-bed"></i>
+                    </div>
+                    <h4 class="tip-title">Adequate Sleep</h4>
+                    <p class="tip-text">Get 7-9 hours of quality sleep each night to support your metabolism and overall health.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Disclaimer -->
+        <div class="disclaimer mt-8 text-center">
+            <p class="text-white opacity-75 text-sm">
+                <i class="fas fa-exclamation-triangle mr-2"></i>
+                This calculator is for informational purposes only. Consult with a healthcare professional for medical advice.
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer bg-gradient-to-r from-emerald-800 to-teal-900 text-white p-8 md:p-20">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-7xl mx-auto justify-center">
+            <div class="text-center sm:text-left">
+                <span class="footer-title text-lg mb-4 block">NooB Programmers</span> 
+                <div class="space-y-2">
+                    <a class="link link-hover block">Professional web development services</a>
+                    <a class="link link-hover block">Custom solutions for businesses</a>
+                    <a class="link link-hover block">Modern and responsive design</a>
+                </div>
+            </div> 
+            <div class="text-center sm:text-left">
+                <span class="footer-title text-lg mb-4 block">Services</span> 
+                <div class="space-y-2">
+                    <a class="link link-hover block">Web Development</a>
+                    <a class="link link-hover block">UI/UX Design</a>
+                    <a class="link link-hover block">SEO Optimization</a>
+                    <a class="link link-hover block">Maintenance</a>
+                </div>
+            </div> 
+            <div class="text-center sm:text-left">
+                <span class="footer-title text-lg mb-4 block">Company</span> 
+                <div class="space-y-2">
+                    <a class="link link-hover block">About us</a>
+                    <a class="link link-hover block">Contact</a>
+                    <a class="link link-hover block">Careers</a>
+                    <a class="link link-hover block">Press kit</a>
+                </div>
+            </div>
+            <div class="text-center sm:text-left">
+                <span class="footer-title text-lg mb-4 block">Social</span> 
+                <div class="flex justify-center sm:justify-start space-x-4">
+                    <a class="hover:text-emerald-300 transition-colors duration-300">
+                        <i class="fab fa-twitter text-2xl"></i>
+                    </a>
+                    <a class="hover:text-emerald-300 transition-colors duration-300">
+                        <i class="fab fa-facebook text-2xl"></i>
+                    </a>
+                    <a class="hover:text-emerald-300 transition-colors duration-300">
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </a>
+                    <a class="hover:text-emerald-300 transition-colors duration-300">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Copyright Footer -->
+    <footer class="footer copyright-footer px-4 py-6 border-t bg-gradient-to-r from-emerald-700 to-cyan-800 text-white border-base-300">
+        <div class="w-full max-w-7xl mx-auto text-center">
+            <p class="text-sm md:text-base">Copyright © 2025 - All rights reserved by NooB Programmers</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="../script.js"></script>
+    <script>
+        if (window.initializeMobileMenu) {
+            window.initializeMobileMenu();
+        }
+    </script>
+</body>
+</html> 

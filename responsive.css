@@ -1,0 +1,943 @@
+/* Responsive CSS for All Pages - Essential Fixes Only */
+
+/* Base responsive fixes */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Hero Slider Responsive Fixes */
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-slider .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-slider .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Mobile responsive fixes */
+@media (max-width: 768px) {
+    /* Hero Slider Mobile Fixes */
+    .hero {
+        min-height: 100vh;
+        padding: 0; /* Remove padding to cover full width */
+        position: relative;
+        width: 100%; /* Ensure it takes full width */
+        overflow: hidden; /* Ensure no overflow causes scrollbars */
+    }
+    
+    .hero-slider {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .hero-slider .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    
+    .hero-content {
+        position: relative;
+        z-index: 10;
+        padding: 2rem 1rem; /* Add padding to content instead */
+        text-align: center;
+        width: 100%; /* Ensure content takes full width to align properly */
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem !important;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    
+    .hero-content p {
+        font-size: 1rem !important;
+        line-height: 1.5;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* Slider Navigation Mobile Fixes */
+    .slider-nav {
+        padding: 0.5rem;
+        font-size: 0.875rem;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .slider-nav.prev {
+        left: 0.5rem;
+    }
+    
+    .slider-nav.next {
+        right: 0.5rem;
+    }
+    
+    .slider-nav i {
+        font-size: 1rem;
+    }
+    
+    /* Slider Dots Mobile Fixes */
+    .slider-dot {
+        width: 8px;
+        height: 8px;
+        margin: 0 2px;
+    }
+    
+    /* About Section Mobile Fixes */
+    .about-section {
+        padding: 3rem 1rem; /* Increased vertical padding for better spacing */
+        text-align: center; /* Center align all text content within the section */
+    }
+    
+    .about-section .grid {
+        grid-template-columns: 1fr;
+        gap: 3rem; /* Increased gap for better separation */
+        align-items: center;
+        justify-items: center; /* Center grid items */
+    }
+    
+    .about-section h2 {
+        font-size: 2.25rem !important; /* Slightly increased for readability */
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+    
+    .about-section p {
+        font-size: 1.05rem !important; /* Slightly increased for readability */
+        line-height: 1.6;
+        margin-bottom: 1.5rem; /* Increased margin-bottom for better spacing */
+    }
+    
+    .about-section .stats {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-top: 2rem;
+        display: flex; /* Use flexbox for stats to allow centering */
+        flex-direction: column;
+        align-items: center; /* Center stats horizontally */
+        width: 100%;
+        max-width: 300px; /* Limit width of stats block */
+        margin-left: auto; /* Center stats block */
+        margin-right: auto; /* Center stats block */
+        overflow: visible; /* Ensure shadows are not clipped */
+    }
+    
+    .about-section .stat {
+        text-align: center;
+        padding: 1.5rem 1rem;
+        width: 100%;
+        margin-bottom: 1rem; /* Add margin to create space between stats */
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2), 0px -4px 8px rgba(0, 0, 0, 0.1) !important; /* Stronger shadow, explicitly top and bottom */
+        border: 1px solid rgba(0, 0, 0, 0.1); /* Slightly more visible border */
+        border-radius: 0.5rem; /* Ensure consistent border-radius */
+    }
+    
+    .about-section .stat:last-child {
+        margin-bottom: 0; /* Remove margin from the last stat to prevent extra space */
+    }
+    
+    .about-section .stat-figure {
+        margin-bottom: 0.5rem;
+    }
+    
+    .about-section .stat-figure i {
+        font-size: 2.75rem !important; /* Slightly increased icon size */
+    }
+    
+    .about-section .stat-title {
+        font-size: 1.1rem !important;
+        margin-bottom: 0.5rem;
+    }
+    
+    .about-section .stat-value {
+        font-size: 2.25rem !important;
+    }
+    
+    /* About Section Image Mobile Fixes */
+    .about-section img {
+        width: 100%;
+        height: auto;
+        max-width: 450px; /* Slightly increased max-width */
+        margin: 0 auto;
+        display: block;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Basic container fixes */
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    /* Calculator fixes */
+    .calculator-container {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+        padding: 1rem;
+    }
+    
+    .calculator {
+        width: 100%;
+    }
+    
+    .calculator .buttons {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.5rem;
+    }
+    
+    .calculator .btn {
+        padding: 0.75rem 0.5rem;
+        font-size: 1rem;
+        min-height: 50px;
+    }
+    
+    .calculator .btn.col-span-2 {
+        grid-column: span 2;
+    }
+    
+    /* BMI Calculator fixes */
+    .calculator-card,
+    .results-card {
+        margin: 0.5rem 0;
+        padding: 1rem;
+    }
+    
+    .input-container {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .form-input,
+    .unit-select {
+        width: 100%;
+        margin: 0;
+    }
+    
+    /* Age Calculator fixes */
+    .age-breakdown .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+    
+    .breakdown-card {
+        padding: 0.75rem;
+    }
+    
+    .breakdown-value {
+        font-size: 1.5rem;
+    }
+    
+    /* Team page fixes */
+    .team-member {
+        margin: 0.5rem 0;
+        padding: 1rem;
+    }
+    
+    .team-member img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .team-member h3 {
+        font-size: 1.25rem;
+        text-align: center;
+    }
+    
+    /* Footer fixes */
+    .footer {
+        padding: 2rem 1rem !important;
+    }
+    
+    .footer .grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.5rem !important;
+        justify-items: center !important;
+        align-items: center !important;
+    }
+    
+    .footer .text-center.ml-10.md\:ml-0 {
+        margin-left: 0 !important;
+        text-align: center !important;
+    }
+    
+    .footer .grid > div {
+        text-align: center !important;
+        margin: 0 auto !important;
+        width: 100% !important;
+        max-width: 250px !important;
+    }
+    
+    .footer .flex.justify-center.sm\:justify-start {
+        justify-content: center !important;
+    }
+    
+    .footer-title {
+        text-align: center !important;
+        margin-bottom: 0.75rem !important;
+    }
+    
+    /* Text size adjustments */
+    h1 {
+        font-size: 2rem !important;
+    }
+    
+    h2 {
+        font-size: 1.5rem !important;
+    }
+    
+    h3 {
+        font-size: 1.25rem !important;
+    }
+    
+    p {
+        font-size: 0.875rem !important;
+    }
+    
+    /* Button fixes */
+    .btn {
+        padding: 0.75rem 1rem;
+        font-size: 0.875rem;
+        white-space: nowrap;
+    }
+    
+    /* Form fixes */
+    .form-input,
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    input[type="date"],
+    textarea,
+    select {
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1rem;
+        border-radius: 0.5rem;
+    }
+    
+    /* Card fixes */
+    .card {
+        margin: 0.5rem 0;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    /* Grid fixes */
+    .grid {
+        gap: 1rem;
+    }
+    
+    /* Stats fixes */
+    .stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .stat {
+        text-align: center;
+        padding: 1rem;
+    }
+    
+    /* Service cards fixes */
+    .service-card {
+        margin: 0.5rem 0;
+        padding: 1rem;
+    }
+    
+    /* Portfolio fixes */
+    .portfolio-card {
+        margin: 0.5rem 0;
+    }
+    
+    /* Contact form fixes */
+    .contact-form {
+        padding: 1rem;
+    }
+    
+    .contact-form .form-control {
+        margin-bottom: 1rem;
+    }
+    
+    /* Modal fixes */
+    .modal-box {
+        margin: 1rem;
+        max-width: calc(100vw - 2rem);
+        max-height: calc(100vh - 2rem);
+    }
+
+    /* Footer fixes for tablets and larger mobiles (up to 768px) */
+    .footer {
+        padding: 2rem 1rem !important;
+        text-align: initial; /* Revert text alignment to default for grid items */
+    }
+    
+    .footer .grid {
+        grid-template-columns: repeat(2, 1fr) !important; /* Ensure 2 columns */
+        gap: 1.5rem !important;
+        justify-items: start !important; /* Align items to start (left) within their grid cells */
+        align-items: start !important; /* Align items to start (top) in their cells */
+        display: grid !important; /* Explicitly set display to grid */
+    }
+
+    .footer .grid > div {
+        text-align: left !important; /* Force left-aligned text within each column */
+        margin: 0 !important; /* Remove any auto margins from individual divs */
+        width: auto !important; /* Let grid manage width, don't force 100% or max-width here */
+        max-width: none !important; /* Ensure no max-width limits grid distribution */
+        padding: 0.5rem; /* Add some padding back to each div for content spacing */
+        box-sizing: border-box; /* Ensure padding is included in width */
+    }
+
+    /* Specific overrides for classes that might conflict (now removed from HTML, so this block is no longer needed) */
+    /* .footer .text-center.ml-10.md\:ml-0 { */
+    /*     margin-left: 0 !important; */
+    /*     text-align: left !important; */
+    /* } */
+
+    .footer .flex.justify-center.sm\:justify-start {
+        justify-content: start !important; /* Ensure social icons align to start (left) */
+    }
+
+    .footer-title {
+        text-align: left !important; /* Ensure footer titles are left-aligned */
+    }
+
+    .footer .space-y-2 {
+        text-align: left !important; /* Ensure text lists are left-aligned */
+    }
+
+    .footer .space-y-2 a {
+        text-align: left !important;
+        margin: 0 !important; /* Remove any auto margins from links */
+        display: block !important;
+        width: auto !important; /* Allow content to dictate width */
+    }
+
+    /* Copyright footer adjustments for general mobile */
+    .copyright-footer {
+        text-align: center !important;
+        padding: 1rem !important;
+    }
+
+    .copyright-footer > div {
+        text-align: center !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .copyright-footer p {
+        text-align: center !important;
+        margin: 0 auto !important;
+        width: 100% !important;
+        font-size: 0.875rem !important;
+    }
+}
+
+/* Small mobile fixes */
+@media (max-width: 480px) {
+    /* Hero Slider Extra Small Mobile Fixes */
+    .hero-content h1 {
+        font-size: 1.75rem !important;
+        margin-bottom: 0.75rem;
+    }
+    
+    .hero-content p {
+        font-size: 0.9rem !important;
+        padding: 0.5rem 0;
+    }
+    
+    .slider-nav {
+        width: 35px;
+        height: 35px;
+        padding: 0.25rem;
+    }
+    
+    .slider-nav i {
+        font-size: 0.875rem;
+    }
+    
+    .slider-dot {
+        width: 6px;
+        height: 6px;
+        margin: 0 1px;
+    }
+    
+    /* About Section Extra Small Mobile Fixes */
+    .about-section h2 {
+        font-size: 1.75rem !important;
+    }
+    
+    .about-section p {
+        font-size: 0.9rem !important;
+    }
+    
+    .about-section .stat-figure i {
+        font-size: 2rem !important;
+    }
+    
+    .about-section .stat-value {
+        font-size: 1.75rem !important;
+    }
+    
+    .about-section img {
+        max-width: 300px;
+    }
+    
+    /* Ensure the main footer container itself is centered */
+    .footer {
+        padding: 1.5rem 0.75rem !important;
+        text-align: center !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    /* Ensure the grid inside the footer centers its items */
+    .footer .grid {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important; /* Centers items horizontally in column layout */
+        gap: 1.5rem !important; /* Increased gap for better separation */
+        width: 100%; /* Ensure the grid takes full width */
+        max-width: none; /* Remove any max-width constraints */
+    }
+    
+    /* Ensure individual footer content divs are centered */
+    .footer .grid > div {
+        display: block !important; /* Ensure it behaves as a block element */
+        width: 90% !important; /* Adjust width to provide some side padding, then center */
+        max-width: none !important; /* Remove specific max-width, rely on 90% and margins */
+        margin: 0 auto !important; /* Explicitly center the div itself */
+        padding: 1rem; /* Add some padding inside the div */
+        box-sizing: border-box; /* Include padding in width calculation */
+        text-align: center !important; /* Center text within each footer content div */
+    }
+
+    /* Ensure social icons and other specific elements are centered */
+    .footer .flex.justify-center {
+        justify-content: center !important;
+    }
+
+    .footer-title {
+        text-align: center !important;
+    }
+
+    .footer .space-y-2 {
+        text-align: center !important;
+    }
+
+    .footer .space-y-2 a {
+        text-align: center !important;
+        margin: 0 auto !important; /* Center individual links */
+    }
+
+    .copyright-footer {
+        text-align: center !important;
+    }
+
+    .copyright-footer p {
+        text-align: center !important;
+        margin: 0 auto !important;
+    }
+}
+
+/* Tablet responsive fixes */
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Hero Slider Tablet Fixes */
+    .hero-content h1 {
+        font-size: 3rem !important;
+    }
+    
+    .hero-content p {
+        font-size: 1.1rem !important;
+    }
+    
+    /* About Section Tablet Fixes */
+    .about-section .grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+    }
+    
+    .about-section h2 {
+        font-size: 2.5rem !important;
+    }
+    
+    .about-section .stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+    
+    .about-section img {
+        width: 100%;
+        height: auto;
+        max-width: 500px;
+    }
+    
+    .container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    
+    .calculator-container {
+        max-width: 450px;
+    }
+    
+    .age-breakdown .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Footer overrides for tablets */
+    .footer .grid {
+        justify-content: start !important; /* Ensure grid content aligns to start */
+        align-content: start !important;
+        justify-items: start !important;
+        align-items: start !important;
+    }
+
+    .footer .grid > div {
+        text-align: left !important;
+        margin: 0 !important;
+        width: auto !important;
+        max-width: none !important;
+        display: block !important;
+    }
+
+    .footer .flex.justify-center.sm\:justify-start {
+        justify-content: start !important;
+    }
+
+    .footer-title {
+        text-align: left !important;
+    }
+
+    .footer .space-y-2 {
+        text-align: left !important;
+    }
+
+    .footer .space-y-2 a {
+        text-align: left !important;
+        margin: 0 !important;
+    }
+}
+
+/* Large screen optimizations */
+@media (min-width: 1025px) {
+    /* Hero Slider Large Screen Fixes */
+    .hero-content h1 {
+        font-size: 4rem !important;
+    }
+    
+    .hero-content p {
+        font-size: 1.25rem !important;
+    }
+    
+    /* About Section Large Screen Fixes */
+    .about-section .grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+    }
+    
+    .about-section h2 {
+        font-size: 3rem !important;
+    }
+    
+    .about-section .stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+    
+    .about-section img {
+        width: 100%;
+        height: auto;
+        max-width: 600px;
+    }
+    
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* Footer overrides for large screens */
+    .footer .grid {
+        justify-content: start !important; /* Ensure grid content aligns to start */
+        align-content: start !important;
+        justify-items: start !important;
+        align-items: start !important;
+    }
+
+    .footer .grid > div {
+        text-align: left !important;
+        margin: 0 !important;
+        width: auto !important;
+        max-width: none !important;
+        display: block !important;
+    }
+
+    .footer .flex.justify-center.sm\:justify-start {
+        justify-content: start !important;
+    }
+
+    .footer-title {
+        text-align: left !important;
+    }
+
+    .footer .space-y-2 {
+        text-align: left !important;
+    }
+
+    .footer .space-y-2 a {
+        text-align: left !important;
+        margin: 0 !important;
+    }
+}
+
+/* Landscape mobile fixes */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        min-height: 100vh;
+        padding: 0.5rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.5rem !important;
+        margin-bottom: 0.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 0.875rem !important;
+        margin-bottom: 0.5rem;
+    }
+    
+    .about-section {
+        padding: 1.5rem 1rem;
+    }
+    
+    .about-section .grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+    
+    .about-section img {
+        max-width: 250px;
+    }
+    
+    .pt-20 {
+        padding-top: 4rem;
+    }
+    
+    .pt-32 {
+        padding-top: 5rem;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .btn {
+        min-height: 44px;
+        padding: 0.875rem 1.25rem;
+    }
+    
+    .calculator .btn {
+        min-height: 60px;
+    }
+    
+    .slider-nav {
+        min-width: 44px;
+        min-height: 44px;
+    }
+}
+
+/* High DPI display fixes */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .hero-slider img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+    
+    .about-section img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Print styles */
+@media print {
+    .navbar,
+    .footer,
+    .btn,
+    .slider-nav,
+    .dropdown {
+        display: none !important;
+    }
+    
+    .hero {
+        min-height: auto;
+        padding: 1rem;
+    }
+    
+    .card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus styles for better accessibility */
+.btn:focus,
+.form-input:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+/* Calculator page specific fixes */
+.calculator-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.calculator-page .container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Fix for Bengali text rendering */
+.font-baloo {
+    font-family: 'Baloo Da 2', cursive;
+    line-height: 1.6;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Ensure proper spacing for Bengali messages */
+#bengali-fun-message {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    #bengali-fun-message {
+        margin-top: 1rem;
+        padding: 0.75rem;
+        font-size: 0.875rem;
+    }
+    
+    #bengali-fun-message .text-lg {
+        font-size: 1rem !important;
+    }
+}
+
+/* Footer centering fixes */
+.footer .flex.space-x-4 {
+    justify-content: center !important;
+    gap: 1rem !important;
+}
+
+.footer .flex.justify-center.sm\:justify-start.space-x-4 {
+    justify-content: center !important;
+    gap: 1rem !important;
+}
+
+.footer .flex.justify-center.sm\:justify-start.space-x-4 a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.footer .space-y-2 a.link.link-hover.block {
+    text-align: center !important;
+    display: block !important;
+    margin: 0 auto !important;
+} 
+
+/* Desktop and Tablet Footer Overrides to ensure left alignment */
+@media (min-width: 769px) {
+    .footer .grid {
+        justify-items: start !important;
+        align-items: start !important;
+    }
+
+    .footer .grid > div {
+        text-align: left !important;
+        margin: 0 !important;
+        width: auto !important;
+        max-width: none !important;
+    }
+
+    /* Remove this specific selector as ml-10/md:ml-0 are removed from HTML */
+    /* .footer .text-center.ml-10.md\:ml-0 { */
+    /*     margin-left: 0 !important; */
+    /*     text-align: left !important; */
+    /* } */
+
+    .footer .flex.justify-center.sm\:justify-start {
+        justify-content: start !important;
+    }
+
+    .footer-title {
+        text-align: left !important;
+    }
+
+    .footer .space-y-2 {
+        text-align: left !important;
+    }
+
+    .footer .space-y-2 a {
+        text-align: left !important;
+        margin: 0 !important;
+    }
+} 

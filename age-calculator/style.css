@@ -1,0 +1,816 @@
+/* Age Calculator Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    background: linear-gradient(135deg, #f43f5e 0%, #e11d48 50%, #be185d 100%);
+    min-height: 100vh;
+    animation: gradientShift 20s ease infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background: linear-gradient(135deg, #f43f5e 0%, #e11d48 50%, #be185d 100%);
+    }
+    25% {
+        background: linear-gradient(135deg, #ec4899 0%, #db2777 50%, #be185d 100%);
+    }
+    50% {
+        background: linear-gradient(135deg, #a855f7 0%, #9333ea 50%, #7c3aed 100%);
+    }
+    75% {
+        background: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #dc2626 100%);
+    }
+}
+
+/* Card Styles */
+.calculator-card,
+.results-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: slideInUp 0.8s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.calculator-card::before,
+.results-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #f43f5e, #e11d48, #ec4899, #a855f7);
+    background-size: 300% 100%;
+    animation: gradientMove 3s ease infinite;
+}
+
+@keyframes gradientMove {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.card-header h2 {
+    background: linear-gradient(45deg, #f43f5e, #e11d48);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+}
+
+/* Form Styles */
+.form-section {
+    space-y: 1.5rem;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-label {
+    display: block;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #f43f5e;
+    box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Button Styles */
+.calculate-btn,
+.reset-btn {
+    width: 100%;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.calculate-btn {
+    background: linear-gradient(135deg, #f43f5e, #e11d48);
+    color: white;
+}
+
+.calculate-btn:hover {
+    background: linear-gradient(135deg, #e11d48, #be185d);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(244, 63, 94, 0.3);
+}
+
+.reset-btn {
+    background: linear-gradient(135deg, #6b7280, #4b5563);
+    color: white;
+}
+
+.reset-btn:hover {
+    background: linear-gradient(135deg, #4b5563, #374151);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(107, 114, 128, 0.3);
+}
+
+/* Results Styles */
+.results-content {
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholder-content {
+    text-align: center;
+    color: #9ca3af;
+}
+
+.age-result {
+    text-align: center;
+    animation: fadeInScale 0.6s ease-out;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.age-value {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #f43f5e, #e11d48);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.age-details {
+    color: #6b7280;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Age Breakdown */
+.age-breakdown {
+    margin-top: 3rem;
+}
+
+.breakdown-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: slideInUp 0.8s ease-out;
+}
+
+.breakdown-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    background-size: 200% 100%;
+    animation: gradientMove 2s ease infinite;
+}
+
+.breakdown-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.breakdown-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 1.5rem;
+    color: white;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.breakdown-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.5rem;
+}
+
+.breakdown-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #667eea;
+    margin-bottom: 0.5rem;
+}
+
+.breakdown-desc {
+    color: #6b7280;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Life Milestones */
+.milestone-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: slideInUp 0.8s ease-out;
+}
+
+.milestone-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #f093fb, #f5576c);
+    background-size: 200% 100%;
+    animation: gradientMove 2s ease infinite;
+}
+
+.milestone-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.milestone-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    color: white;
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    box-shadow: 0 8px 20px rgba(240, 147, 251, 0.3);
+}
+
+.milestone-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 1rem;
+}
+
+.milestone-text {
+    color: #6b7280;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Fun Facts */
+.fact-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: slideInUp 0.8s ease-out;
+}
+
+.fact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+    background-size: 200% 100%;
+    animation: gradientMove 2s ease infinite;
+}
+
+.fact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.fact-number {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #4facfe;
+    margin-bottom: 0.5rem;
+}
+
+.fact-label {
+    color: #6b7280;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Countdown */
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.countdown-item {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: slideInUp 0.8s ease-out;
+}
+
+.countdown-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #43e97b, #38f9d7);
+    background-size: 200% 100%;
+    animation: gradientMove 2s ease infinite;
+}
+
+.countdown-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.countdown-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #43e97b;
+    margin-bottom: 0.5rem;
+}
+
+.countdown-label {
+    color: #6b7280;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Animation Delays */
+.breakdown-card:nth-child(1) { animation-delay: 0.1s; }
+.breakdown-card:nth-child(2) { animation-delay: 0.2s; }
+.breakdown-card:nth-child(3) { animation-delay: 0.3s; }
+.breakdown-card:nth-child(4) { animation-delay: 0.4s; }
+
+.milestone-card:nth-child(1) { animation-delay: 0.5s; }
+.milestone-card:nth-child(2) { animation-delay: 0.6s; }
+.milestone-card:nth-child(3) { animation-delay: 0.7s; }
+
+.fact-card:nth-child(1) { animation-delay: 0.8s; }
+.fact-card:nth-child(2) { animation-delay: 0.9s; }
+.fact-card:nth-child(3) { animation-delay: 1.0s; }
+.fact-card:nth-child(4) { animation-delay: 1.1s; }
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .calculator-card,
+    .results-card {
+        padding: 1.5rem;
+        border-radius: 15px;
+        margin: 0.5rem 0;
+    }
+    
+    .age-value {
+        font-size: 3rem;
+    }
+    
+    .breakdown-card,
+    .milestone-card,
+    .fact-card {
+        padding: 1.25rem;
+        margin: 0.5rem 0;
+    }
+    
+    .breakdown-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+    }
+    
+    .milestone-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.75rem;
+    }
+    
+    .countdown-container {
+        gap: 1rem;
+    }
+    
+    .countdown-item {
+        padding: 1rem;
+    }
+    
+    .countdown-value {
+        font-size: 2rem;
+    }
+    
+    .age-breakdown .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+    
+    .life-milestones .grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .fun-facts .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+    
+    .form-input {
+        width: 100%;
+        padding: 0.875rem;
+        font-size: 1rem;
+        min-height: 44px;
+    }
+    
+    .calculate-btn,
+    .reset-btn {
+        width: 100%;
+        padding: 0.875rem;
+        font-size: 1rem;
+        min-height: 50px;
+    }
+    
+    .quick-facts {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0.75rem;
+    }
+    
+    .calculator-card,
+    .results-card {
+        padding: 1rem;
+        border-radius: 12px;
+    }
+    
+    .age-value {
+        font-size: 2.5rem;
+    }
+    
+    .breakdown-card,
+    .milestone-card,
+    .fact-card {
+        padding: 1rem;
+        border-radius: 12px;
+    }
+    
+    .breakdown-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+    
+    .milestone-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 1.5rem;
+    }
+    
+    .countdown-item {
+        padding: 0.75rem;
+    }
+    
+    .countdown-value {
+        font-size: 1.75rem;
+    }
+    
+    .breakdown-title {
+        font-size: 1.1rem;
+    }
+    
+    .milestone-title {
+        font-size: 1.25rem;
+    }
+    
+    .age-breakdown .grid {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    
+    .fun-facts .grid {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    
+    .form-input {
+        padding: 0.75rem;
+        font-size: 0.875rem;
+    }
+    
+    .calculate-btn,
+    .reset-btn {
+        padding: 0.75rem;
+        font-size: 0.875rem;
+        min-height: 45px;
+    }
+    
+    .quick-facts {
+        padding: 0.75rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .form-input {
+        min-height: 44px;
+        padding: 0.875rem;
+        font-size: 1rem;
+    }
+    
+    .calculate-btn,
+    .reset-btn {
+        min-height: 50px;
+        padding: 1rem;
+        font-size: 1rem;
+    }
+    
+    .breakdown-card,
+    .milestone-card,
+    .fact-card {
+        padding: 1.25rem;
+    }
+    
+    .countdown-item {
+        min-height: 60px;
+        padding: 1rem;
+    }
+}
+
+/* Landscape mobile fixes */
+@media (max-width: 768px) and (orientation: landscape) {
+    .container {
+        padding: 0.5rem;
+    }
+    
+    .calculator-card,
+    .results-card {
+        padding: 1rem;
+    }
+    
+    .age-breakdown .grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.5rem;
+    }
+    
+    .life-milestones .grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.75rem;
+    }
+    
+    .fun-facts .grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.5rem;
+    }
+    
+    .breakdown-card,
+    .milestone-card,
+    .fact-card {
+        padding: 0.75rem;
+    }
+    
+    .breakdown-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .milestone-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+    
+    .countdown-container {
+        gap: 0.5rem;
+    }
+    
+    .countdown-item {
+        padding: 0.75rem;
+    }
+    
+    .countdown-value {
+        font-size: 1.5rem;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Additional Animations */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.countdown-item:hover .countdown-value {
+    animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.calculator-card,
+.results-card {
+    animation: float 6s ease-in-out infinite;
+}
+
+.quick-facts {
+    animation: slideInLeft 0.8s ease-out;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+} 
+/* Mobile Menu Modal Styling */
+.modal-box {
+    padding: 0;
+}
+
+.modal-box .menu {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .modal-middle .modal-box {
+        margin: auto;
+        position: fixed; /* Changed from absolute to fixed */
+        top: 10% !important; /* Adjusted to be even higher from the top */
+        left: 50% !important;
+        transform: translateX(-50%) !important; /* Only horizontal centering */
+        max-width: 90%; /* Adjust as needed */
+        width: 300px; /* Specific width for mobile menu */
+        max-height: 80vh; /* Limit height for scrollability */
+        overflow-y: auto;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        /* Ensure z-index is high enough */
+        z-index: 1000;
+    }
+
+    .modal-middle::backdrop {
+        background-color: rgba(0, 0, 0, 0.7); /* Slightly darker overlay */
+        backdrop-filter: blur(5px); /* Slightly stronger blur */
+        z-index: 999; /* Ensure backdrop is below modal but above content */
+    }
+
+    /* Ensure dropdown menu text within modal is visible against its background */
+    #mobile-menu-modal .menu li a {
+        color: var(--fallback-bc, oklch(var(--bc) / 1)) !important; /* DaisyUI base-content color */
+        padding: 0.75rem 1rem; /* Adjust padding for readability */
+        font-size: 1.1rem !important; /* Increase font size */
+    }
+
+    #mobile-menu-modal .menu li details summary {
+        color: var(--fallback-bc, oklch(var(--bc) / 1)) !important;
+        padding: 0.75rem 1rem;
+        font-size: 1.1rem !important;
+    }
+
+    #mobile-menu-modal .menu li details ul li a {
+        padding-left: 2.5rem; /* Indent sub-items */
+        font-size: 1rem !important;
+    }
+}
+
+/* Common class for circular modal close buttons */
+.modal-close-btn-circle {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    min-height: 2.5rem !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+} 

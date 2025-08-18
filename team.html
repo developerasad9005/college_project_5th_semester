@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team - NooB Programmers</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+    <!-- Navigation (copied from main page) -->
+    <nav class="navbar bg-gradient-to-r from-rose-600 to-pink-700 shadow-lg fixed top-0 z-50 w-full">
+        <!-- Mobile Layout -->
+        <div class="navbar-start lg:hidden">
+            <a href="index.html" class="btn btn-ghost text-xl font-bold text-white">NooB Programmers</a>
+        </div>
+        <div class="navbar-end lg:hidden">
+            <div class="dropdown dropdown-end">
+                <div tabindex="0" role="button" class="btn btn-ghost text-white" id="mobile-menu-toggle">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Modal -->
+        <dialog id="mobile-menu-modal" class="modal modal-middle">
+            <div class="modal-box bg-base-100 p-0 rounded-box w-11/12 max-w-xs">
+                <div class="modal-header flex justify-end p-4">
+                    <form method="dialog">
+                        <button class="btn btn-sm btn-circle btn-ghost modal-close-btn-circle">✕</button>
+                    </form>
+                </div>
+                <ul class="menu menu-vertical p-4">
+                    <li><a href="index.html#home" class="text-base-content hover:text-primary">Home</a></li>
+                    <li><a href="index.html#about" class="text-base-content hover:text-primary">About</a></li>
+                    <li><a href="index.html#services" class="text-base-content hover:text-primary">Services</a></li>
+                    <li><a href="index.html#portfolio" class="text-base-content hover:text-primary">Portfolio</a></li>
+                    <li>
+                        <details>
+                            <summary class="flex items-center cursor-pointer text-base-content hover:text-primary">Calculators</summary>
+                            <ul>
+                                <li><a href="calculator/index.html" class="text-base-content hover:text-primary">Modern Calculator</a></li>
+                                <li><a href="bmi-calculator/index.html" class="text-base-content hover:text-primary">BMI Calculator</a></li>
+                                <li><a href="age-calculator/index.html" class="text-base-content hover:text-primary">Age Calculator</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li><a href="team.html" class="text-base-content hover:text-primary">Team</a></li>
+                    <li><a href="index.html#contact" class="text-base-content hover:text-primary">Contact</a></li>
+                </ul>
+            </div>
+        </dialog>
+        <!-- Desktop Layout -->
+        <div class="hidden lg:flex w-full max-w-7xl mx-auto px-4 justify-between items-center">
+            <div class="flex-shrink-0">
+                <a href="index.html" class="btn btn-ghost text-xl font-bold text-white">NooB Programmers</a>
+            </div>
+            <div class="flex items-center">
+                <ul class="menu menu-horizontal px-1">
+                    <li><a href="index.html" class="text-white hover:text-gray-300">Home</a></li>
+                    <li><a href="index.html#about" class="text-white hover:text-gray-300">About</a></li>
+                    <li><a href="index.html#services" class="text-white hover:text-gray-300">Services</a></li>
+                    <li><a href="index.html#portfolio" class="text-white hover:text-gray-300">Portfolio</a></li>
+                    
+                    <li class="relative">
+                        <div class="dropdown dropdown-bottom">
+                            <label tabindex="0" class="text-white hover:text-gray-300 flex items-center cursor-pointer">
+                                Calculators
+                                <svg class="ml-1 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                            </label>
+                            <ul tabindex="0" class="dropdown-content bg-base-100 text-black z-50 p-2 shadow rounded-box w-52">
+                                <li><a href="calculator/index.html">Modern Calculator</a></li>
+                                <li><a href="bmi-calculator/index.html">BMI Calculator</a></li>
+                                <li><a href="age-calculator/index.html">Age Calculator</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="team.html" class="text-white font-bold">Team</a></li>
+                    <li><a href="index.html#contact" class="text-white hover:text-gray-300">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Team Section -->
+    <section class="pt-32 pb-16 bg-base-200 min-h-screen">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">Meet Our Team</h2>
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Group Leader -->
+                <div class="team-member leader bg-white rounded-lg shadow-lg p-6 flex flex-col items-center border-2 border-yellow-400 relative">
+                    <!-- Group Leader Badge -->
+                    <span class="absolute top-4 right-4 badge bg-yellow-400 text-black font-semibold px-4 py-2 rounded-full shadow-md text-base z-10">Group Leader</span>
+                    <img src="img/asad.jpg" alt="MD. ASADUZZAMAN ASAD" class="w-28 h-28 rounded-full mb-4 object-cover border-4 border-yellow-300 mt-2">
+                    <h3 class="text-2xl font-bold mb-1">ASADUZZAMAN ASAD</h3>
+                    <p class="mb-1 text-gray-700"><strong>Roll:</strong> 708311</p>
+                    <p class="mb-1 text-gray-700"><strong>Email:</strong> developerasad5@gmail.com</p>
+                </div>
+                <!-- Member 2 -->
+                <div class="team-member bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
+                    <img src="img/placeholder.jpg" alt="BADHON TALUKDER" class="w-28 h-28 rounded-full mb-4 object-cover">
+                    <h3 class="text-2xl font-bold mb-1">BADHON TALUKDER</h3>
+                    <p class="mb-1 text-gray-700"><strong>Roll:</strong> 708314</p>
+                    <p class="mb-1 text-gray-700"><strong>Email:</strong> badhon@example.com</p>
+                </div>
+                <!-- Member 3 -->
+                <div class="team-member bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
+                    <img src="img/placeholder.jpg" alt="MD. JAHID HASAN" class="w-28 h-28 rounded-full mb-4 object-cover">
+                    <h3 class="text-2xl font-bold mb-1">MD. JAHID HASAN</h3>
+                    <p class="mb-1 text-gray-700"><strong>Roll:</strong> 708312</p>
+                    <p class="mb-1 text-gray-700"><strong>Email:</strong> jahid@example.com</p>
+                </div>
+                <!-- Member 4 -->
+                <div class="team-member bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
+                    <img src="img/placeholder.jpg" alt="ROKONUZZAMAN" class="w-28 h-28 rounded-full mb-4 object-cover">
+                    <h3 class="text-2xl font-bold mb-1">ROKONUZZAMAN</h3>
+                    <p class="mb-1 text-gray-700"><strong>Roll:</strong> 708313</p>
+                    <p class="mb-1 text-gray-700"><strong>Email:</strong> rokon@example.com</p>
+                </div>
+                <!-- Member 5 -->
+                <div class="team-member bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
+                    <img src="img/placeholder.jpg" alt="JULKER NINE JOY" class="w-28 h-28 rounded-full mb-4 object-cover">
+                    <h3 class="text-2xl font-bold mb-1">JULKER NINE JOY</h3>
+                    <p class="mb-1 text-gray-700"><strong>Roll:</strong> 708315</p>
+                    <p class="mb-1 text-gray-700"><strong>Email:</strong> joy@example.com</p>
+                </div>
+                <!-- Member 6 -->
+                <div class="team-member bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
+                    <img src="img/placeholder.jpg" alt="ATIK SHAHRIAR NIROB" class="w-28 h-28 rounded-full mb-4 object-cover">
+                    <h3 class="text-2xl font-bold mb-1">ATIK SHAHRIAR NIROB</h3>
+                    <p class="mb-1 text-gray-700"><strong>Roll:</strong> 708316</p>
+                    <p class="mb-1 text-gray-700"><strong>Email:</strong> nirob@example.com</p>
+                </div>
+                <!-- Member 7 -->
+                <div class="team-member bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
+                    <img src="img/placeholder.jpg" alt="MST. ARGINA AKTHER" class="w-28 h-28 rounded-full mb-4 object-cover">
+                    <h3 class="text-2xl font-bold mb-1">MST. ARGINA AKTHER</h3>
+                    <p class="mb-1 text-gray-700"><strong>Roll:</strong> 708317</p>
+                    <p class="mb-1 text-gray-700"><strong>Email:</strong> argina@example.com</p>
+                </div>
+                <!-- Member 8 -->
+                <div class="team-member bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
+                    <img src="img/placeholder.jpg" alt="MEHOTABIN AKTER MITA" class="w-28 h-28 rounded-full mb-4 object-cover">
+                    <h3 class="text-2xl font-bold mb-1">MEHOTABIN AKTER MITA</h3>
+                    <p class="mb-1 text-gray-700"><strong>Roll:</strong> 708318</p>
+                    <p class="mb-1 text-gray-700"><strong>Email:</strong> mita@example.com</p>
+                </div>
+                <!-- Member 9 -->
+                <div class="team-member bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
+                    <img src="img/placeholder.jpg" alt="TASNIM AKTHER MITU" class="w-28 h-28 rounded-full mb-4 object-cover">
+                    <h3 class="text-2xl font-bold mb-1">TASNIM AKTHER MITU</h3>
+                    <p class="mb-1 text-gray-700"><strong>Roll:</strong> 708319</p>
+                    <p class="mb-1 text-gray-700"><strong>Email:</strong> mitu@example.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer (copied from main page) -->
+    <footer class="footer bg-neutral text-neutral-content p-8 md:p-20">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-7xl mx-auto justify-center">
+            <div class="text-center sm:text-left">
+                <span class="footer-title text-lg mb-4 block">NooB Programmers</span> 
+                <div class="space-y-2">
+                    <a class="link link-hover block">Professional web development services</a>
+                    <a class="link link-hover block">Custom solutions for businesses</a>
+                    <a class="link link-hover block">Modern and responsive design</a>
+                </div>
+            </div> 
+            <div class="text-center sm:text-left">
+                <span class="footer-title text-lg mb-4 block">Services</span> 
+                <div class="space-y-2">
+                    <a class="link link-hover block">Web Development</a>
+                    <a class="link link-hover block">UI/UX Design</a>
+                    <a class="link link-hover block">SEO Optimization</a>
+                    <a class="link link-hover block">Maintenance</a>
+                </div>
+            </div> 
+            <div class="text-center sm:text-left">
+                <span class="footer-title text-lg mb-4 block">Company</span> 
+                <div class="space-y-2">
+                    <a class="link link-hover block">About us</a>
+                    <a class="link link-hover block">Contact</a>
+                    <a class="link link-hover block">Careers</a>
+                    <a class="link link-hover block">Press kit</a>
+                </div>
+            </div>
+            <div class="text-center sm:text-left">
+                <span class="footer-title text-lg mb-4 block">Social</span> 
+                <div class="flex justify-center sm:justify-start space-x-4">
+                    <a class="hover:text-primary transition-colors duration-300">
+                        <i class="fab fa-twitter text-2xl"></i>
+                    </a>
+                    <a class="hover:text-primary transition-colors duration-300">
+                        <i class="fab fa-facebook text-2xl"></i>
+                    </a>
+                    <a class="hover:text-primary transition-colors duration-300">
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </a>
+                    <a class="hover:text-primary transition-colors duration-300">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+     <!-- Copyright Footer -->
+     <footer class="footer copyright-footer px-4 py-6 border-t bg-neutral text-neutral-content border-base-300">
+        <div class="w-full max-w-7xl mx-auto text-center">
+            <p class="text-sm md:text-base">Copyright © 2025 - All rights reserved by NooB Programmers</p>
+        </div> 
+    </footer>
+</body>
+<script src="script.js"></script>
+<script>
+    if (window.initializeMobileMenu) {
+        window.initializeMobileMenu();
+    }
+</script>
+</html> 
