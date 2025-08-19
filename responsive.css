@@ -41,10 +41,10 @@ body {
     /* Hero Slider Mobile Fixes */
     .hero {
         min-height: 100vh;
-        padding: 0; /* Remove padding to cover full width */
+        padding: 0; 
         position: relative;
-        width: 100%; /* Ensure it takes full width */
-        overflow: hidden; /* Ensure no overflow causes scrollbars */
+        width: 100%; 
+        overflow: hidden; 
     }
     
     .hero-slider {
@@ -65,9 +65,9 @@ body {
     .hero-content {
         position: relative;
         z-index: 10;
-        padding: 2rem 1rem; /* Add padding to content instead */
+        padding: 2rem 1rem; 
         text-align: center;
-        width: 100%; /* Ensure content takes full width to align properly */
+        width: 100%;
     }
     
     .hero-content h1 {
@@ -115,27 +115,27 @@ body {
     
     /* About Section Mobile Fixes */
     .about-section {
-        padding: 3rem 1rem; /* Increased vertical padding for better spacing */
-        text-align: center; /* Center align all text content within the section */
+        padding: 3rem 1rem;
+        text-align: center; 
     }
     
     .about-section .grid {
         grid-template-columns: 1fr;
-        gap: 3rem; /* Increased gap for better separation */
+        gap: 3rem;
         align-items: center;
-        justify-items: center; /* Center grid items */
+        justify-items: center;
     }
     
     .about-section h2 {
-        font-size: 2.25rem !important; /* Slightly increased for readability */
+        font-size: 2.25rem !important;
         text-align: center;
         margin-bottom: 1.5rem;
     }
     
     .about-section p {
-        font-size: 1.05rem !important; /* Slightly increased for readability */
+        font-size: 1.05rem !important;
         line-height: 1.6;
-        margin-bottom: 1.5rem; /* Increased margin-bottom for better spacing */
+        margin-bottom: 1.5rem; 
     }
     
     .about-section .stats {
